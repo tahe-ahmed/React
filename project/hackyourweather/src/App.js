@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       
         <h1 className="title">Weather</h1>
-        <Search weatherData={weatherData}/>
+        <Search />
 
     </div>
   );
