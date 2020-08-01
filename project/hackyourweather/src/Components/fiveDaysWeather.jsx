@@ -44,7 +44,7 @@ const FiveDaysWeather = () => {
 
     useEffect(() => {
         fetchDetails(id);
-    }, []);
+    }, [id]);
 
     const navigateToHome =() => {
         history.push('/'); 
