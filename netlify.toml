@@ -1,4 +1,4 @@
 [build]
-    command = "npmrun build"
+    command = "npm run build"
     publish = "./project/hackyourweather/build"
     base = "./project/hackyourweather"
