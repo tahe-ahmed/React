@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       maringTop: theme.spacing(5),
       width: '10ch',
     }
-  }));
+}));
 
 
 const Search = ({weatherData, setWeatherData}) => {
@@ -40,7 +40,6 @@ const Search = ({weatherData, setWeatherData}) => {
                 setWeatherData([cityWeatherData, ...weatherData]); 
             }
             else{
-                console.log(data);
                 setError({show:true, text: data.message})
             }
             setLoading(false);
@@ -60,6 +59,7 @@ const Search = ({weatherData, setWeatherData}) => {
         setcityName('');
         event.preventDefault();
     };
+    
     useEffect(() => {
         const timer = setTimeout(() => {
             setError({show: false})

@@ -11,30 +11,26 @@ const useStyles = makeStyles({
     root: {
       minWidth: 275,
     },
-  });
+});
 
-const CityCard = ({cityData, weatherData, setWeatherData}) => {
+const CityCard = ({cityWeatherData, weatherData, setWeatherData}) => {
     
     const classes = useStyles();
-    const {name, id,  sys : {country}, weather :[{main, description}], main : {temp_min, temp_max}, coord : {lon, lat} } = cityData;
-    console.log({cityData});
-    console.log({id});
+    const {name, id,  sys : {country}, weather :[{main, description}], main : {temp_min, temp_max}, coord : {lon, lat} } = cityWeatherData;
+
     const handleDelete = () =>{
-        console.log("delelete");
         const tempData = weatherData.filter(aCityData => aCityData.id !== id);
         setWeatherData(tempData)
-
     }
+
     return (
         <Card className={classes.root}>
-            
             <Tooltip title="Delete">
                 <IconButton  onClick={handleDelete} aria-label="delete">
                 <DeleteIcon />
                 </IconButton>
             </Tooltip>
             <CardContent>
-                
                 <Typography variant="h5" component="h2" >
                 {name}, {country}
                 </Typography>
