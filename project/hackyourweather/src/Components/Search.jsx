@@ -3,7 +3,6 @@ import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { uuid } from 'uuidv4';
 
 const useStyles = makeStyles((theme) => ({
     formInput: {
@@ -36,7 +35,7 @@ const Search = ({weatherData, setWeatherData}) => {
         .then(data =>{
             if(data.cod === 200){
                 console.log(data);
-                const cityWeatherData = {...data, id: uuid()}
+                const cityWeatherData = {...data}
                 setWeatherData([cityWeatherData, ...weatherData]); 
             }
             else{

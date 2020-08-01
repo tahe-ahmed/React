@@ -6,6 +6,14 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+    useParams
+  } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -17,13 +25,13 @@ const CityCard = ({cityWeatherData, weatherData, setWeatherData}) => {
     
     const classes = useStyles();
     const {name, id,  sys : {country}, weather :[{main, description}], main : {temp_min, temp_max}, coord : {lon, lat} } = cityWeatherData;
-
     const handleDelete = () =>{
         const tempData = weatherData.filter(aCityData => aCityData.id !== id);
         setWeatherData(tempData)
     }
-
+    
     return (
+        <> 
         <Card className={classes.root}>
             <Tooltip title="Delete">
                 <IconButton  onClick={handleDelete} aria-label="delete">
@@ -31,9 +39,11 @@ const CityCard = ({cityWeatherData, weatherData, setWeatherData}) => {
                 </IconButton>
             </Tooltip>
             <CardContent>
-                <Typography variant="h5" component="h2" >
-                {name}, {country}
-                </Typography>
+            <Link to={`/${id}`} > 
+                    <Typography variant="h5" component="h2" >
+                    {name}, {country}
+                    </Typography>
+            </Link>   
                 <Typography variant="h5" component="h2">
                 {main}
                 </Typography>
@@ -48,6 +58,8 @@ const CityCard = ({cityWeatherData, weatherData, setWeatherData}) => {
             </CardContent>
             
         </Card>
+        </>
+       
     )
 }
  

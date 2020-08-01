@@ -6,7 +6,6 @@ const cityList = ({weatherData, setWeatherData}) => {
         <div>
             {weatherData.map(cityWeatherData => {
                 return <CityCard key={cityWeatherData.id} cityWeatherData={cityWeatherData} setWeatherData={setWeatherData} weatherData={weatherData}/>
-
             })}
         </div>
     )
